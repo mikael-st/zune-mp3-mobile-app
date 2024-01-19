@@ -1,22 +1,24 @@
 import 'package:first_app/service/permissions.dart';
 import 'package:first_app/service/repositories/file_manager.dart';
 import 'package:first_app/service/repositories/state_manager.dart';
-import 'package:first_app/service/utils/album.dart';
-import 'package:first_app/service/utils/music.dart';
 import 'package:first_app/service/utils/states.dart';
+// import 'package:first_app/service/repositories/state_manager.dart';
+// import 'package:first_app/service/utils/album.dart';
+// import 'package:first_app/service/utils/music.dart';
+// import 'package:first_app/service/utils/states.dart';
 import 'package:first_app/utils.dart';
-import 'package:first_app/view/components/order_by.dart';
+// import 'package:first_app/view/components/order_by.dart';
 
 import '../assets/palette.dart';
-import 'package:first_app/view/pages/albuns_page.dart';
-import 'package:first_app/view/pages/artists_page.dart';
-import 'package:first_app/view/pages/home.dart';
-import 'package:first_app/view/pages/lib_page.dart';
-import 'package:first_app/view/pages/music_player.dart';
+// import 'package:first_app/view/pages/albuns_page.dart';
+// import 'package:first_app/view/pages/artists_page.dart';
+// import 'package:first_app/view/pages/home.dart';
+// import 'package:first_app/view/pages/lib_page.dart';
+// import 'package:first_app/view/pages/music_player.dart';
 import 'package:first_app/view/pages/musics_page.dart';
-import 'package:first_app/view/pages/search_page.dart';
+// import 'package:first_app/view/pages/search_page.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -32,7 +34,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  int _selectedIndex = 0;
+  // int _selectedIndex = 0;
 
   @override
   void initState() {
@@ -51,11 +53,11 @@ class _AppState extends State<App> {
         home: FutureBuilder(
             future: FileManager.getMusicFiles('/storage/emulated/0/Music'),
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
+              if (snapshot.connectionState == ConnectionState.waiting &&
+                  StateManager.state == States.loading) {
                 return const Center(child: CircularProgressIndicator());
               } else {
-                Utils.songs = snapshot.data!;
-                Utils.songs.sort((a, b) => a.added.compareTo(b.added));
+                Utils.setAll(snapshot.data!);
 
                 return MusicsPage();
               }

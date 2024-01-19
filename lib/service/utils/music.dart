@@ -2,36 +2,21 @@ import 'package:first_app/service/utils/album.dart';
 // import 'package:first_app/service/utils/artist.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
-//{
-//  _id: 42
-//  _uri: /storage/emulated/0/Music/Avenged Sevenfold - Shepherd Of Fire.mp3,
-//
-//  title: Shepherd Of Fire,
-//  album: Hail To The King,
-//  artist: Avenged Sevenfold,
-//  duration: 322612,
-//  year: null,
-//  track: 1,
-//  artist_id: 2,
-//  album_id: 3,
-// }
-// miliseconds: 1705522049
-
 class Music {
   final int id;
   final String uri;
   //
-  final String title;
+  late String title;
   late Album album; //album-id
-  final String artist; //artist-id
-  // final List<String> genres = [];
-  // final int year;
-  final int track;
-  final double duration;
-  final int added;
+  late String artist; //artist-id
+  // late List<String> genres = [];
+  // late int year;
+  late int track;
+  late double duration;
+  late int added;
   //
-  final int artistId;
-  final int albumId;
+  late int artistId;
+  late int albumId;
 
   Music(
       {required this.id,
@@ -65,6 +50,26 @@ class Music {
 
   @override
   String toString() {
-    return '{id: $id, uri: $uri, title: $title, artist: $artist, album: $album, track: $track, duration: $duration}';
+    return '{id: $id, uri: $uri, title: $title, artist: artist, album: $album, track: $track, duration: $duration}';
   }
 }
+
+
+
+
+
+
+// {
+//  _id: 42,
+//  _data: /storage/emulated/0/Music/Avenged Sevenfold - Shepherd Of Fire.mp3,
+
+//  title: Shepherd Of Fire,
+//  track: 1,
+//  artist: Avenged Sevenfold,    artist_id: 2,
+//  album: Hail To The King,      album_id:  3,     album_artist: Avenged Sevenfold,
+
+//  duration: 322.612,
+//  year: null,
+
+//  date_added: 1705522049,
+//  }

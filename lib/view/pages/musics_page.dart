@@ -36,50 +36,10 @@ class _MusicsPageState extends State<MusicsPage> {
                   child: LibButton(
                       text: song.title,
                       text2: song.artist,
-                      // img: song.album.artwork,
+                      img: song.album.artwork,
                       icon: Icons.music_note));
             }).toList());
           }
-        })
-
-        // FutureBuilder(
-        //     future: FileManager.getMusicFiles('/storage/emulated/0/Music'),
-        //     builder: (context, snapshot) {
-        //       if (snapshot.data == null || snapshot.data!.length == 0) {
-        //         return Center(
-        //             child: Text(
-        //           'Nenhuma música encontrada',
-        //           style: TextStyle(color: Palette.text),
-        //         ));
-        //       } else if (snapshot.connectionState == ConnectionState.waiting) {
-        //         return const Center(child: CircularProgressIndicator());
-        //       } else {
-        //         return ListView(children: [
-        //           OrderBy(),
-        //           ...List.generate(snapshot.data!.length, (index) {
-        //             print(snapshot.data![index]);
-        //             return Padding(
-        //                 padding: const EdgeInsets.only(bottom: 10),
-        //                 child: LibButton(
-        //                     text: snapshot.data![index].title,
-        //                     text2: '${snapshot.data![index].artist}',
-        //                     icon: Icons.music_note));
-        //           })
-        //         ]);
-        //       }
-        //     })
-
-        /* Builder(builder: (context) {
-          if (utils.songs == null || utils.songs.isEmpty) {
-            return Center(
-                child: Text(
-              'Nenhuma música encontrada',
-              style: TextStyle(color: Palette.text),
-            ));
-          } else if 
-        }) */
-
-        /*  */
-        );
+        }));
   }
 }
