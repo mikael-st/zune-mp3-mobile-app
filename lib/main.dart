@@ -52,9 +52,57 @@ class _AppState extends State<App> {
           textTheme: GoogleFonts.poppinsTextTheme(),
           fontFamily: 'Poppins',
         ),
-        home: );
+        home: AnimatedBuilder(
+          animation: StateManager.state,
+          builder: (context, child) {
+            return stateManagement(StateManager.state.value);
+          },
+        ));
+  }
+
+  Widget stateManagement(States value) {
+    switch (value) {
+      case States.init:
+        return _init();
+      case States.loading:
+        return _loading();
+      case States.success:
+        return _success();
+      case States.erro:
+        return _error();
+      default:
+        return _init();
+    }
+  }
+
+  Widget _loading() {
+    return Scaffold(
+        backgroundColor: Palette.icon_box,
+        body: Center(
+            child: CircularProgressIndicator(
+          color: Palette.various,
+        )));
+  }
+
+  Widget _success() {
+    return MusicsPage();
+  }
+
+  Widget _error() {
+    return Scaffold(
+        backgroundColor: Palette.icon_box,
+        body: Center(
+            child: Text(
+          'Nenhuma musica encontrada',
+          style: TextStyle(color: Palette.text),
+        )));
+  }
+
+  Widget _init() {
+    return Scaffold();
   }
 }
+
 
 // FutureBuilder(
 //             future: FileManager.getMusicFiles('/storage/emulated/0/Music'),

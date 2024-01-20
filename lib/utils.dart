@@ -13,7 +13,7 @@ class Utils {
   static List<Artist> artists = [];
 
   static void setAll(/* List<SongModel> list */) async {
-    StateManager.state = States.loading;
+    StateManager.state.value = States.loading;
 
     List<SongModel> list = await FileManager.getMusicFiles(path);
 
@@ -36,7 +36,7 @@ class Utils {
       });
     });
 
-    StateManager.state = States.success;
+    StateManager.state.value = States.success;
   }
 
   // static void setAll(List<SongModel> list) async {

@@ -7,5 +7,5 @@ import 'package:flutter/material.dart';
 import 'package:async/async.dart';
 
 class StateManager {
-  static States state = States.loading;
+  static final state = ValueNotifier<States>(States.init);
 }
