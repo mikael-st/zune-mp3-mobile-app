@@ -34,9 +34,9 @@ class _MusicsPageState extends State<MusicsPage> {
               return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: LibButton(
-                      text: song.title,
-                      text2: song.artist,
-                      img: song.album.artwork,
+                      title: song.title,
+                      sub: song.artist,
+                      art: MemoryImage(song.album.artwork),
                       icon: Icons.music_note));
             }).toList());
           }

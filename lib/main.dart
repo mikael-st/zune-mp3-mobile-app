@@ -7,6 +7,7 @@ import 'package:first_app/service/utils/states.dart';
 // import 'package:first_app/service/utils/music.dart';
 // import 'package:first_app/service/utils/states.dart';
 import 'package:first_app/utils.dart';
+import 'package:first_app/view/pages/albuns_page.dart';
 // import 'package:first_app/view/components/order_by.dart';
 
 import '../assets/palette.dart';
@@ -40,6 +41,7 @@ class _AppState extends State<App> {
   void initState() {
     super.initState();
     PermissionController.checkPermission();
+    Utils.setAll();
   }
 
   @override
@@ -50,22 +52,27 @@ class _AppState extends State<App> {
           textTheme: GoogleFonts.poppinsTextTheme(),
           fontFamily: 'Poppins',
         ),
-        home: FutureBuilder(
-            future: FileManager.getMusicFiles('/storage/emulated/0/Music'),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting &&
-                  StateManager.state == States.loading) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                Utils.setAll(snapshot.data!);
-
-                return MusicsPage();
-              }
-            }));
+        home: );
   }
 }
 
+// FutureBuilder(
+//             future: FileManager.getMusicFiles('/storage/emulated/0/Music'),
+//             builder: (context, snapshot) {
+//               if (snapshot.connectionState == ConnectionState.waiting &&
+//                   StateManager.state == States.loading) {
+//                 return Scaffold(
+//                     body: Center(
+//                         child: CircularProgressIndicator(
+//                   color: Palette.text,
+//                 )));
+//               } else {
+//                 Utils.setAll(snapshot.data!);
+//                 Utils.setArts();
 
+//                 return MusicsPage();
+//               }
+//             }));
 
         // MusicsPage()
 

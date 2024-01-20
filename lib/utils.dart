@@ -12,35 +12,60 @@ class Utils {
   static List<Album> albuns = [];
   static List<Artist> artists = [];
 
-  static void setAll(List<SongModel> list) async {
+  static void setAll(/* List<SongModel> list */) async {
     StateManager.state = States.loading;
+
+    List<SongModel> list = await FileManager.getMusicFiles(path);
+
     songs = list.map((obj) => Music.create(obj)).toList();
     albuns = list.map((obj) => Album.create(obj)).toList();
+
+    for (Album album in albuns) {
+      album.artwork = await FileManager.getArtwork(album.id);
+    }
 
     for (Album album in albuns) {
       album.songs = songs.where((song) => song.albumId == album.id).toList();
     }
 
     songs.forEach((song) {
-      albuns.forEach((obj) async {
+      albuns.forEach((obj) {
         if (song.albumId == obj.id) {
           song.album = obj;
         }
-        obj.artwork = await FileManager.getArtwork(obj.id);
       });
     });
 
     StateManager.state = States.success;
   }
+
+  // static void setAll(List<SongModel> list) async {
+  //   StateManager.state = States.loading;
+  //   songs = list.map((obj) => Music.create(obj)).toList();
+  //   albuns = list.map((obj) => Album.create(obj)).toList();
+
+  //   for (Album album in albuns) {
+  //     album.artwork = await FileManager.getArtwork(album.id);
+  //   }
+
+  //   songs.forEach((song) {
+  //     albuns.forEach((obj) {
+  //       if (song.albumId == obj.id) {
+  //         song.album = obj;
+  //       }
+  //     });
+  //   });
+
+  //   for (Album album in albuns) {
+  //     album.songs = songs.where((song) => song.albumId == album.id).toList();
+  //   }
+
+  //   StateManager.state = States.success;
+  // }
+
+  // static void setArts() async {
+  //   for (Album album in albuns) {
+  //     album.artwork = Image.memory(await FileManager.getArtwork(album.id));
+  //   }
+  // }
 }
-
-
-/* var songs = list.map((obj) => Music.create(obj)).toList();
-    songs.sort((a, b) => a.added.compareTo(b.added));
-
-    List<Album> albs = list.map((obj) => Album.create(obj)).toList();
-
-    for (Album album in albs) {
-      album.songs = songs.where((s) => s.albumId == album.id).toList();
-      print(album);
-    } */
