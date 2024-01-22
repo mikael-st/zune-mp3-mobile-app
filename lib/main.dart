@@ -1,42 +1,42 @@
-import 'package:first_app/service/permissions.dart';
-import 'package:first_app/service/repositories/file_manager.dart';
-import 'package:first_app/service/repositories/state_manager.dart';
-import 'package:first_app/service/utils/states.dart';
-// import 'package:first_app/service/repositories/state_manager.dart';
-// import 'package:first_app/service/utils/album.dart';
-// import 'package:first_app/service/utils/music.dart';
-// import 'package:first_app/service/utils/states.dart';
-import 'package:first_app/utils.dart';
-import 'package:first_app/view/pages/albuns_page.dart';
-// import 'package:first_app/view/components/order_by.dart';
+import 'package:zune/service/permissions.dart';
+import 'package:zune/service/repositories/file_manager.dart';
+import 'package:zune/service/repositories/state_manager.dart';
+import 'package:zune/service/utils/states.dart';
+// import 'package:zune/service/repositories/state_manager.dart';
+// import 'package:zune/service/utils/album.dart';
+// import 'package:zune/service/utils/music.dart';
+// import 'package:zune/service/utils/states.dart';
+import 'package:zune/utils.dart';
+import 'package:zune/view/components/menu.dart';
+import 'package:zune/view/pages/albuns_page.dart';
+// import 'package:zune/view/components/order_by.dart';
 
 import '../assets/palette.dart';
-// import 'package:first_app/view/pages/albuns_page.dart';
-// import 'package:first_app/view/pages/artists_page.dart';
-// import 'package:first_app/view/pages/home.dart';
-// import 'package:first_app/view/pages/lib_page.dart';
-// import 'package:first_app/view/pages/music_player.dart';
-import 'package:first_app/view/pages/musics_page.dart';
-// import 'package:first_app/view/pages/search_page.dart';
+// import 'package:zune/view/pages/albuns_page.dart';
+// import 'package:zune/view/pages/artists_page.dart';
+import 'package:zune/view/pages/home.dart';
+import 'package:zune/view/pages/lib_page.dart';
+import 'package:zune/view/pages/search_page.dart';
+//
+// import 'package:zune/view/pages/music_player.dart';
+import 'package:zune/view/pages/musics_page.dart';
 import 'package:flutter/material.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
-  runApp(const App());
+  runApp(App());
 }
 
 // ignore: must_be_immutable
 class App extends StatefulWidget {
-  const App({super.key});
+  App({super.key});
 
   @override
   State<App> createState() => _AppState();
 }
 
 class _AppState extends State<App> {
-  // int _selectedIndex = 0;
-
   @override
   void initState() {
     super.initState();
@@ -85,7 +85,7 @@ class _AppState extends State<App> {
   }
 
   Widget _success() {
-    return MusicsPage();
+    return HomePage();
   }
 
   Widget _error() {

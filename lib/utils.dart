@@ -1,9 +1,9 @@
-import 'package:first_app/service/repositories/file_manager.dart';
-import 'package:first_app/service/repositories/state_manager.dart';
-import 'package:first_app/service/utils/album.dart';
-import 'package:first_app/service/utils/artist.dart';
-import 'package:first_app/service/utils/music.dart';
-import 'package:first_app/service/utils/states.dart';
+import 'package:zune/service/repositories/file_manager.dart';
+import 'package:zune/service/repositories/state_manager.dart';
+import 'package:zune/service/utils/album.dart';
+import 'package:zune/service/utils/artist.dart';
+import 'package:zune/service/utils/music.dart';
+import 'package:zune/service/utils/states.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class Utils {
@@ -21,7 +21,7 @@ class Utils {
     albuns = list.map((obj) => Album.create(obj)).toList();
 
     for (Album album in albuns) {
-      album.artwork = await FileManager.getArtwork(album.id);
+      album.art = await FileManager.getArtwork(album.id);
     }
 
     for (Album album in albuns) {

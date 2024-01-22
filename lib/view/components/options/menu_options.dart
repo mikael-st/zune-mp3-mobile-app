@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:first_app/view/components/menu_options/opt_menu_label.dart';
+import 'package:zune/view/components/options/opt_menu_label.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../assets/palette.dart';
-import 'package:first_app/assets/zune_icons.dart';
+import 'package:zune/assets/zune_icons.dart';
 
 class MenuOptions extends StatelessWidget {
   const MenuOptions({super.key});

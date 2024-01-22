@@ -1,8 +1,4 @@
-import 'package:first_app/service/repositories/file_manager.dart';
-import 'package:first_app/service/utils/album.dart';
-import 'package:first_app/service/utils/music.dart';
 import 'package:flutter/foundation.dart';
-import 'package:on_audio_query/on_audio_query.dart';
 
 import '../../../assets/palette.dart';
 import 'package:flutter/material.dart';

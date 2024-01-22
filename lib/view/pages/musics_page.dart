@@ -1,8 +1,8 @@
-import 'package:first_app/assets/palette.dart';
-import 'package:first_app/utils.dart';
-import 'package:first_app/view/components/header.dart';
-import 'package:first_app/view/components/lib_button.dart';
-// import 'package:first_app/view/components/order_by.dart';
+import 'package:zune/assets/palette.dart';
+import 'package:zune/utils.dart';
+import 'package:zune/view/components/header.dart';
+import 'package:zune/view/components/lib_button.dart';
+// import 'package:zune/view/components/order_by.dart';
 import 'package:flutter/material.dart';
 
 class MusicsPage extends StatefulWidget {

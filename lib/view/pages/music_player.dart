@@ -1,7 +1,7 @@
-import 'package:first_app/assets/zune_icons.dart';
-import 'package:first_app/view/components/menu_options/menu_options.dart';
+import 'package:zune/assets/zune_icons.dart';
+import 'package:zune/view/components/options/menu_options.dart';
 import '../../../assets/palette.dart';
-import 'package:first_app/view/components/play_button.dart';
+import 'package:zune/view/components/play_button.dart';
 import 'package:flutter/material.dart';
 
 class MusicPlayer extends StatefulWidget {

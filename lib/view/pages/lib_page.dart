@@ -1,6 +1,7 @@
-import 'package:first_app/assets/palette.dart';
-import 'package:first_app/view/components/add_playlist.dart';
-import 'package:first_app/view/components/lib_button.dart';
+import 'package:zune/assets/palette.dart';
+import 'package:zune/page.dart';
+import 'package:zune/view/components/add_playlist.dart';
+import 'package:zune/view/components/lib_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -9,12 +10,14 @@ class LibPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        alignment: Alignment.topCenter,
-        margin: const EdgeInsets.only(top: 75, left: 15, right: 15),
-        child: const SingleChildScrollView(
-            clipBehavior: Clip.none,
-            child: Column(children: [Lib(), MyPlaylists()])));
+    return PageModel(
+        index: 1,
+        child: Container(
+            alignment: Alignment.topCenter,
+            margin: const EdgeInsets.only(top: 75, left: 15, right: 15),
+            child: const SingleChildScrollView(
+                clipBehavior: Clip.none,
+                child: Column(children: [Lib(), MyPlaylists()]))));
   }
 }
 

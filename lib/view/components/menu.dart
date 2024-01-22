@@ -1,33 +1,22 @@
+import 'package:zune/view/models/switch.dart';
+import 'package:get/get.dart';
+
 import '../../../assets/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:first_app/view/models/switch.dart';
+// import 'package:zune/view/models/switch.dart';
 
-class Menu extends StatefulWidget {
-  const Menu({super.key});
-
-  @override
-  State<Menu> createState() => _MenuState();
-}
-
-class _MenuState extends State<Menu> {
-  int _selectedIndex = 0;
+class Menu extends StatelessWidget {
+  final int current;
+  const Menu({super.key, required this.current});
 
   @override
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-                colors: [Palette.transparent, Palette.icon_box],
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                stops: const [0.0, 1])),
+            border: Border(top: BorderSide(color: Palette.various, width: 2))),
         child: BottomNavigationBar(
-          onTap: (index) => {
-            setState(() {
-              _selectedIndex = index;
-            }),
-          },
+          onTap: (index) => {Go.to(current, context)},
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_filled),
@@ -39,16 +28,16 @@ class _MenuState extends State<Menu> {
             ),
             BottomNavigationBarItem(
               icon: Icon(FontAwesomeIcons.magnifyingGlass),
-              label: 'Biblioteca',
+              label: 'Pesquisar',
             )
           ],
-          selectedFontSize: 8,
-          unselectedFontSize: 8,
+          selectedFontSize: 10,
+          unselectedFontSize: 10,
           unselectedItemColor: Palette.unselected,
           fixedColor: Palette.text,
-          backgroundColor: Palette.transparent,
+          backgroundColor: Palette.menu,
           type: BottomNavigationBarType.fixed,
-          currentIndex: _selectedIndex,
+          currentIndex: current,
         ));
   }
 }

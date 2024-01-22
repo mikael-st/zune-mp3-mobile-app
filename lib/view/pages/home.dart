@@ -1,7 +1,8 @@
-import 'package:first_app/view/components/album_box.dart';
-import 'package:first_app/view/components/artist_box.dart';
-import 'package:first_app/view/components/music_box.dart';
-import 'package:first_app/view/components/playlist_box.dart';
+import 'package:zune/page.dart';
+import 'package:zune/view/components/album_box.dart';
+import 'package:zune/view/components/artist_box.dart';
+import 'package:zune/view/components/music_box.dart';
+import 'package:zune/view/components/playlist_box.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,14 +10,20 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        alignment: Alignment.topCenter,
-        margin: const EdgeInsets.only(top: 75, left: 15, right: 15),
-        child: const SingleChildScrollView(
-          clipBehavior: Clip.none,
-          child: Column(
-              children: [PlaylistSec(), MusicSec(), AlbumSec(), ArtistSec()]),
-        ));
+    return PageModel(
+        index: 0,
+        child: Container(
+            alignment: Alignment.topCenter,
+            margin: const EdgeInsets.only(top: 75, left: 15, right: 15),
+            child: const SingleChildScrollView(
+              clipBehavior: Clip.none,
+              child: Column(children: [
+                PlaylistSec(),
+                MusicSec(),
+                AlbumSec(),
+                ArtistSec()
+              ]),
+            )));
   }
 }
 

@@ -1,3 +1,5 @@
+import 'package:zune/page.dart';
+
 import '../../../assets/palette.dart';
 import 'package:flutter/material.dart';
 
@@ -16,32 +18,34 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Palette.various,
-          leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.arrow_back_ios_new,
-              color: Palette.text,
-              size: 18,
+    return PageModel(
+        index: 2,
+        child: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Palette.various,
+              leading: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.arrow_back_ios_new,
+                  color: Palette.text,
+                  size: 18,
+                ),
+              ),
+              title: TextField(
+                controller: _searchQueryController,
+                decoration: InputDecoration(
+                  hintStyle: TextStyle(color: Palette.text),
+                  hintText: 'Pesquisar',
+                  border: InputBorder.none,
+                ),
+              ),
             ),
-          ),
-          title: TextField(
-            controller: _searchQueryController,
-            decoration: InputDecoration(
-              hintStyle: TextStyle(color: Palette.text),
-              hintText: 'Pesquisar',
-              border: InputBorder.none,
-            ),
-          ),
-        ),
-        body: Container(
-          margin: const EdgeInsets.only(left: 15, right: 15),
-          decoration:
-              BoxDecoration(border: Border.all(color: Colors.red, width: 1)),
-          child: optionsButtons(),
-        ));
+            body: Container(
+              margin: const EdgeInsets.only(left: 15, right: 15),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.red, width: 1)),
+              child: optionsButtons(),
+            )));
   }
 
   Widget optionsButtons() {

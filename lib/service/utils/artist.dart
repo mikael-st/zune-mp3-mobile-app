@@ -1,4 +1,4 @@
-import 'package:first_app/service/utils/album.dart';
+import 'package:zune/service/utils/album.dart';
 import 'package:flutter/material.dart';
 
 class Artist {

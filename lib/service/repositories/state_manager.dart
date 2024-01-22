@@ -1,8 +1,8 @@
-import 'package:first_app/service/repositories/file_manager.dart';
-import 'package:first_app/service/utils/album.dart';
-import 'package:first_app/service/utils/music.dart';
-import 'package:first_app/service/utils/states.dart';
-import 'package:first_app/utils.dart';
+import 'package:zune/service/repositories/file_manager.dart';
+import 'package:zune/service/utils/album.dart';
+import 'package:zune/service/utils/music.dart';
+import 'package:zune/service/utils/states.dart';
+import 'package:zune/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:async/async.dart';
 

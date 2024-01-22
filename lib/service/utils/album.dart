@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-import 'package:first_app/service/utils/music.dart';
+import 'package:zune/service/utils/music.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 //Buscar infos aqui https://www.last.fm/api
@@ -8,7 +8,7 @@ class Album {
   final int id;
   String title;
   String artist;
-  late Uint8List artwork;
+  late Uint8List art;
   late List<Music> songs;
 
   Album({

@@ -1,11 +1,11 @@
 import '../../../assets/palette.dart';
-import 'package:first_app/service/permissions.dart';
-import 'package:first_app/service/repositories/file_manager.dart';
-import 'package:first_app/view/components/artist_label.dart';
-import 'package:first_app/view/components/header.dart';
-import 'package:first_app/view/components/order_by.dart';
+import 'package:zune/service/permissions.dart';
+import 'package:zune/service/repositories/file_manager.dart';
+import 'package:zune/view/components/artist_label.dart';
+import 'package:zune/view/components/header.dart';
+import 'package:zune/view/components/order_by.dart';
 import 'package:flutter/material.dart';
-import 'package:first_app/view/components/play_button.dart';
+import 'package:zune/view/components/play_button.dart';
 
 class ArtistsPage extends StatefulWidget {
   const ArtistsPage({super.key});
