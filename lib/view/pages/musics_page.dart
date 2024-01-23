@@ -36,7 +36,7 @@ class _MusicsPageState extends State<MusicsPage> {
                   child: LibButton(
                       title: song.title,
                       sub: song.artist,
-                      art: MemoryImage(song.album.artwork),
+                      art: MemoryImage(song.album.art),
                       icon: Icons.music_note));
             }).toList());
           }

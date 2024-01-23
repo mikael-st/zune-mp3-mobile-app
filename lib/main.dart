@@ -48,6 +48,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData(
+          pageTransitionsTheme: null,
           scaffoldBackgroundColor: Palette.background,
           textTheme: GoogleFonts.poppinsTextTheme(),
           fontFamily: 'Poppins',

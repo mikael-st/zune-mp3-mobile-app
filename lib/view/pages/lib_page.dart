@@ -1,23 +1,24 @@
 import 'package:zune/assets/palette.dart';
-import 'package:zune/page.dart';
 import 'package:zune/view/components/add_playlist.dart';
 import 'package:zune/view/components/lib_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:zune/view/components/menu.dart';
 
 class LibPage extends StatelessWidget {
+  final int index = 1;
   const LibPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return PageModel(
-        index: 1,
-        child: Container(
+    return Scaffold(
+        body: Container(
             alignment: Alignment.topCenter,
             margin: const EdgeInsets.only(top: 75, left: 15, right: 15),
             child: const SingleChildScrollView(
                 clipBehavior: Clip.none,
-                child: Column(children: [Lib(), MyPlaylists()]))));
+                child: Column(children: [Lib(), MyPlaylists()]))),
+        bottomNavigationBar: NavBar(current: index));
   }
 }
 

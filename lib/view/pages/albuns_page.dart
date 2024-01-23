@@ -1,5 +1,4 @@
 import 'package:zune/service/permissions.dart';
-import 'package:zune/service/repositories/file_manager.dart';
 import 'package:zune/view/components/header.dart';
 import 'package:zune/view/components/lib_button.dart';
 import 'package:zune/view/components/order_by.dart';

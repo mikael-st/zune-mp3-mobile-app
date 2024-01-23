@@ -1,10 +1,10 @@
-import 'package:zune/page.dart';
-
-import '../../../assets/palette.dart';
+import 'package:zune/assets/palette.dart';
 import 'package:flutter/material.dart';
+import 'package:zune/view/components/menu.dart';
 
 // ignore: must_be_immutable
 class SearchPage extends StatelessWidget {
+  final int index = 2;
   List<String> options = const [
     'Tudo',
     'Músicas',
@@ -18,34 +18,34 @@ class SearchPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PageModel(
-        index: 2,
-        child: Scaffold(
-            appBar: AppBar(
-              backgroundColor: Palette.various,
-              leading: IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.arrow_back_ios_new,
-                  color: Palette.text,
-                  size: 18,
-                ),
-              ),
-              title: TextField(
-                controller: _searchQueryController,
-                decoration: InputDecoration(
-                  hintStyle: TextStyle(color: Palette.text),
-                  hintText: 'Pesquisar',
-                  border: InputBorder.none,
-                ),
-              ),
-            ),
-            body: Container(
-              margin: const EdgeInsets.only(left: 15, right: 15),
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colors.red, width: 1)),
-              child: optionsButtons(),
-            )));
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Palette.various,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Palette.text,
+            size: 18,
+          ),
+        ),
+        title: TextField(
+          controller: _searchQueryController,
+          decoration: InputDecoration(
+            hintStyle: TextStyle(color: Palette.text),
+            hintText: 'Pesquisar',
+            border: InputBorder.none,
+          ),
+        ),
+      ),
+      body: Container(
+        margin: const EdgeInsets.only(left: 15, right: 15),
+        decoration:
+            BoxDecoration(border: Border.all(color: Colors.red, width: 1)),
+        child: optionsButtons(),
+      ),
+      bottomNavigationBar: NavBar(current: index),
+    );
   }
 
   Widget optionsButtons() {

@@ -1,14 +1,11 @@
+import 'package:zune/assets/palette.dart';
 import 'package:zune/view/models/switch.dart';
-import 'package:get/get.dart';
-
-import '../../../assets/palette.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-// import 'package:zune/view/models/switch.dart';
 
-class Menu extends StatelessWidget {
+class NavBar extends StatelessWidget {
   final int current;
-  const Menu({super.key, required this.current});
+  const NavBar({super.key, required this.current});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +13,7 @@ class Menu extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border(top: BorderSide(color: Palette.various, width: 2))),
         child: BottomNavigationBar(
-          onTap: (index) => {Go.to(current, context)},
+          onTap: (index) => {print(index) /* Go.to(index, context) */},
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_filled),

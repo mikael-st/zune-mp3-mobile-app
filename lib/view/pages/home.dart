@@ -1,29 +1,30 @@
-import 'package:zune/page.dart';
+import 'package:zune/utils.dart';
 import 'package:zune/view/components/album_box.dart';
 import 'package:zune/view/components/artist_box.dart';
+import 'package:zune/view/components/menu.dart';
 import 'package:zune/view/components/music_box.dart';
 import 'package:zune/view/components/playlist_box.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  final int index = 0;
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return PageModel(
-        index: 0,
-        child: Container(
-            alignment: Alignment.topCenter,
-            margin: const EdgeInsets.only(top: 75, left: 15, right: 15),
-            child: const SingleChildScrollView(
-              clipBehavior: Clip.none,
-              child: Column(children: [
-                PlaylistSec(),
-                MusicSec(),
-                AlbumSec(),
-                ArtistSec()
-              ]),
-            )));
+    return Scaffold(
+      body: Container(
+          alignment: Alignment.topCenter,
+          margin: const EdgeInsets.only(top: 75, left: 15, right: 15),
+          child: const SingleChildScrollView(
+            clipBehavior: Clip.none,
+            child: Column(children: [
+              PlaylistSec(),
+              MusicSec() /* , AlbumSec(), ArtistSec() */
+            ]),
+          )),
+      bottomNavigationBar: NavBar(current: index),
+    );
   }
 }
 
@@ -46,12 +47,15 @@ class PlaylistSec extends StatelessWidget {
             ),
             const Row(
               children: [
-                PlaylistBox(),
-                PlaylistBox(),
+                Expanded(child: PlaylistBox()),
+                Expanded(child: PlaylistBox()),
               ],
             ),
             const Row(
-              children: [PlaylistBox(), PlaylistBox()],
+              children: [
+                Expanded(child: PlaylistBox()),
+                Expanded(child: PlaylistBox())
+              ],
             )
           ],
         ));
@@ -78,7 +82,13 @@ class MusicSec extends StatelessWidget {
                 clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [...List.generate(10, (index) => const MusicBox())],
+                  children: Utils.songs
+                      .map((song) => Expanded(
+                          child: MusicBox(
+                              title: song.title,
+                              sub: song.artist,
+                              art: MemoryImage(song.album.art))))
+                      .toList(),
                 ))
           ],
         ));
