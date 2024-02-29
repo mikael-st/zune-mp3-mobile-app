@@ -18,7 +18,6 @@ class LibButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(art);
     return ListTile(
       contentPadding: const EdgeInsets.all(0),
       style: ListTileStyle.list,

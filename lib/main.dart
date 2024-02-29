@@ -6,9 +6,10 @@ import 'package:zune/service/utils/states.dart';
 // import 'package:zune/service/utils/album.dart';
 // import 'package:zune/service/utils/music.dart';
 // import 'package:zune/service/utils/states.dart';
-import 'package:zune/utils.dart';
+import 'package:zune/service/utils.dart';
 import 'package:zune/view/components/menu.dart';
 import 'package:zune/view/pages/albuns_page.dart';
+import 'package:zune/view/pages/artists_page.dart';
 // import 'package:zune/view/components/order_by.dart';
 
 import '../assets/palette.dart';
@@ -86,7 +87,7 @@ class _AppState extends State<App> {
   }
 
   Widget _success() {
-    return HomePage();
+    return ArtistsPage();
   }
 
   Widget _error() {

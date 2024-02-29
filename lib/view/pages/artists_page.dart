@@ -1,3 +1,5 @@
+import 'package:zune/service/utils.dart';
+
 import '../../../assets/palette.dart';
 import 'package:zune/service/permissions.dart';
 import 'package:zune/service/repositories/file_manager.dart';
@@ -36,23 +38,21 @@ class ArtistsPageState extends State<ArtistsPage> {
   Widget list() {
     return Container(
         margin: const EdgeInsets.symmetric(horizontal: 15),
-        child: FutureBuilder(
-            future: FileManager.getMusicFiles('/storage/emulated/0/Music'),
-            builder: (context, snapshot) {
-              if (snapshot.data == null) {
-                return const Center(child: Text('Nenhuma música encontrada'));
-              } else if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Center(child: CircularProgressIndicator());
-              } else {
-                return ListView(children: [
-                  OrderBy(),
-                  ...List.generate(snapshot.data!.length, (index) {
-                    return const Padding(
-                        padding: EdgeInsets.only(bottom: 10),
-                        child: ArtistLabel());
-                  })
-                ]);
-              }
-            }));
+        child: Builder(builder: (context) {
+          if (Utils.artists.isEmpty) {
+            return Center(
+                child: Text(
+              'Nenhum artista encontrado',
+              style: TextStyle(color: Palette.text),
+            ));
+          } else {
+            return ListView(
+                children: Utils.artists.map((artist) {
+              return Padding(
+                  padding: const EdgeInsets.only(bottom: 10),
+                  child: ArtistLabel(name: artist.name));
+            }).toList());
+          }
+        }));
   }
 }

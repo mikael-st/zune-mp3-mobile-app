@@ -1,4 +1,4 @@
-import 'package:zune/utils.dart';
+import 'package:zune/service/utils.dart';
 import 'package:zune/view/components/album_box.dart';
 import 'package:zune/view/components/artist_box.dart';
 import 'package:zune/view/components/menu.dart';
@@ -20,7 +20,8 @@ class HomePage extends StatelessWidget {
             clipBehavior: Clip.none,
             child: Column(children: [
               PlaylistSec(),
-              MusicSec() /* , AlbumSec(), ArtistSec() */
+              MusicSec(),
+              AlbumSec() /* , ArtistSec() */
             ]),
           )),
       bottomNavigationBar: NavBar(current: index),
@@ -73,6 +74,7 @@ class MusicSec extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
+              width: double.infinity,
               margin: const EdgeInsets.only(bottom: 12),
               child: const Text('Musicas tocadas recentemente',
                   style: TextStyle(
@@ -83,11 +85,8 @@ class MusicSec extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: Utils.songs
-                      .map((song) => Expanded(
-                          child: MusicBox(
-                              title: song.title,
-                              sub: song.artist,
-                              art: MemoryImage(song.album.art))))
+                      .map((song) => MusicBox(
+                          title: song.title, art: MemoryImage(song.album.art)))
                       .toList(),
                 ))
           ],
@@ -106,6 +105,7 @@ class AlbumSec extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
+              width: double.infinity,
               margin: const EdgeInsets.only(bottom: 12),
               child: const Text('Albuns favoritos',
                   style: TextStyle(
@@ -115,7 +115,10 @@ class AlbumSec extends StatelessWidget {
                 clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: [...List.generate(10, (index) => const AlbumBox())],
+                  children: Utils.albuns
+                      .map((album) => AlbumBox(
+                          title: album.title, art: MemoryImage(album.art)))
+                      .toList(),
                 ))
           ],
         ));

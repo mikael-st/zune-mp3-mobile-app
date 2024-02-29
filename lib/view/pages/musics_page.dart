@@ -1,5 +1,5 @@
 import 'package:zune/assets/palette.dart';
-import 'package:zune/utils.dart';
+import 'package:zune/service/utils.dart';
 import 'package:zune/view/components/header.dart';
 import 'package:zune/view/components/lib_button.dart';
 // import 'package:zune/view/components/order_by.dart';

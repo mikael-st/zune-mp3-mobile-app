@@ -1,13 +1,17 @@
+import 'package:on_audio_query/on_audio_query.dart';
 import 'package:zune/service/utils/album.dart';
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
 class Artist {
-  final int _id;
-  final String name;
-  final int artist;
-  final MemoryImage artwork;
-  final List<Album> albuns = [];
-  late String description;
+  final int id;
+  late String name;
+  // final MemoryImage photo;
+  late List<Album> albuns;
+  // late String description;
 
-  Artist(this.name, this._id, this.artist, this.artwork);
+  Artist({required this.id, required this.name});
+
+  factory Artist.create(SongModel obj) {
+    return Artist(id: obj.artistId ?? 0, name: obj.artist ?? '');
+  }
 }

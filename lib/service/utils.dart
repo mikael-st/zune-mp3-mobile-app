@@ -7,6 +7,7 @@ import 'package:zune/service/utils/states.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
 class Utils {
+  //
   static String path = '/storage/emulated/0/Music';
   static List<Music> songs = [];
   static List<Album> albuns = [];
@@ -19,9 +20,15 @@ class Utils {
 
     songs = list.map((obj) => Music.create(obj)).toList();
     albuns = list.map((obj) => Album.create(obj)).toList();
+    artists = list.map((obj) => Artist.create(obj)).toList();
 
     for (Album album in albuns) {
       album.art = await FileManager.getArtwork(album.id);
+    }
+
+    for (Artist artist in artists) {
+      artist.albuns =
+          albuns.where((album) => album.artistId == artist.id).toList();
     }
 
     for (Album album in albuns) {

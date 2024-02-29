@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // ignore: must_be_immutable
 class ArtistLabel extends StatelessWidget {
-  const ArtistLabel({super.key});
+  final String name;
+  // final MemoryImage photo;
+  const ArtistLabel({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class ArtistLabel extends StatelessWidget {
         ),
       )),
       title: Text(
-        'Artista',
+        name,
         style: TextStyle(
             color: Palette.text, fontSize: 13, fontWeight: FontWeight.bold),
       ),

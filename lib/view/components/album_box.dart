@@ -1,9 +1,14 @@
+import 'dart:typed_data';
+
 import '../../../assets/palette.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class AlbumBox extends StatelessWidget {
-  const AlbumBox({super.key});
+  final String title;
+  final MemoryImage art;
+
+  const AlbumBox({super.key, required this.title, required this.art});
 
   @override
   Widget build(BuildContext context) {
@@ -17,27 +22,32 @@ class AlbumBox extends StatelessWidget {
               child: Container(
                 width: 145,
                 height: 145,
-                color: Palette.icon_box,
-                child: const Icon(
-                  Icons.album_sharp,
-                  color: Colors.white,
-                  size: 42,
-                ),
+                decoration: art != MemoryImage(Uint8List(0))
+                    ? BoxDecoration(
+                        image: DecorationImage(image: art, fit: BoxFit.cover))
+                    : BoxDecoration(color: Palette.icon_box),
+                child: art != MemoryImage(Uint8List(0))
+                    ? null
+                    : Icon(
+                        Icons.album_sharp,
+                        color: Palette.text,
+                        size: 42,
+                      ),
               ),
             ),
             Container(
               padding: const EdgeInsets.only(top: 8),
-              child: const Text(
-                'Album',
+              child: Text(
+                title,
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Palette.text,
                     fontSize: 12,
                     fontWeight: FontWeight.bold),
               ),
             ),
-            const Text(
+            Text(
               'Artista',
-              style: TextStyle(color: Colors.white, fontSize: 10),
+              style: TextStyle(color: Palette.text, fontSize: 10),
             ),
           ],
         ));
