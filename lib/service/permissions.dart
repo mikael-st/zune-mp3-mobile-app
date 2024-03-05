@@ -5,16 +5,20 @@ import 'package:get/get.dart';
 class PermissionController {
   static Future<bool> checkPermission() async {
     try {
-      if (await Permission.storage.request().isGranted) {
+      if (await Permission.storage.isGranted) {
         return true;
       } else {
+        final status = Permission.storage.request();
+        if (await status.isGranted) {
+          return true;
+        } else {
         Get.snackbar('Permissão negada',
             'Por favor, aceite a permissão para acessar as músicas',
             snackPosition: SnackPosition.BOTTOM,
             backgroundColor: Colors.red,
             colorText: Colors.white);
-        checkPermission();
         return false;
+        }
       }
     } catch (e) {
       throw Exception(e);

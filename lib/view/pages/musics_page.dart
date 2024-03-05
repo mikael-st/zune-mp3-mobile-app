@@ -4,6 +4,7 @@ import 'package:zune/view/components/header.dart';
 import 'package:zune/view/components/lib_button.dart';
 // import 'package:zune/view/components/order_by.dart';
 import 'package:flutter/material.dart';
+import 'package:zune/view/components/options/menu_options.dart';
 
 class MusicsPage extends StatefulWidget {
   const MusicsPage({super.key});
@@ -37,7 +38,8 @@ class _MusicsPageState extends State<MusicsPage> {
                       title: song.title,
                       sub: song.artist,
                       art: MemoryImage(song.album.art),
-                      icon: Icons.music_note));
+                      icon: Icons.music_note,
+                      options: const MenuOptions(),));
             }).toList());
           }
         }));

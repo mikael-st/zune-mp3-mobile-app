@@ -5,7 +5,9 @@ import '../../../assets/palette.dart';
 import 'package:zune/assets/zune_icons.dart';
 
 class MenuOptions extends StatelessWidget {
-  const MenuOptions({super.key});
+  // final Object obj;
+
+  const MenuOptions({super.key, /* required this.obj */});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,7 @@ class MenuOptions extends StatelessWidget {
               height: 5,
             ),
             const OptMenuLabel(
-                text: 'Musica',
+                text: "Música",
                 text2: 'artista  •  album',
                 icon: Icons.music_note),
             ListTile(

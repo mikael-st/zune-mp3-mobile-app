@@ -2,10 +2,10 @@ import 'package:zune/service/utils.dart';
 
 import '../../../assets/palette.dart';
 import 'package:zune/service/permissions.dart';
-import 'package:zune/service/repositories/file_manager.dart';
+// import 'package:zune/service/repositories/file_manager.dart';
 import 'package:zune/view/components/artist_label.dart';
 import 'package:zune/view/components/header.dart';
-import 'package:zune/view/components/order_by.dart';
+// import 'package:zune/view/components/order_by.dart';
 import 'package:flutter/material.dart';
 import 'package:zune/view/components/play_button.dart';
 
@@ -50,7 +50,7 @@ class ArtistsPageState extends State<ArtistsPage> {
                 children: Utils.artists.map((artist) {
               return Padding(
                   padding: const EdgeInsets.only(bottom: 10),
-                  child: ArtistLabel(name: artist.name));
+                  child: ArtistLabel(name: artist.name, art: MemoryImage(artist.photo),));
             }).toList());
           }
         }));

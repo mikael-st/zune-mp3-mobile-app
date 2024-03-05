@@ -23,13 +23,14 @@ class Utils {
     artists = list.map((obj) => Artist.create(obj)).toList();
 
     for (Album album in albuns) {
-      album.art = await FileManager.getArtwork(album.id);
+      album.art = await FileManager.getAlbumArtwork(album.id);
     }
 
-    for (Artist artist in artists) {
-      artist.albuns =
-          albuns.where((album) => album.artistId == artist.id).toList();
-    }
+    // for (Artist artist in artists) {
+    //   artist.photo = await FileManager.getArtistArtwork(artist.id);
+    //   artist.albuns =
+    //       albuns.where((album) => album.artistId == artist.id).toList();
+    // }
 
     for (Album album in albuns) {
       album.songs = songs.where((song) => song.albumId == album.id).toList();

@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:zune/view/components/options/menu_options.dart';
 
 import '../../../assets/palette.dart';
 import 'package:flutter/material.dart';
@@ -8,17 +9,23 @@ class LibButton extends StatelessWidget {
   final String title, sub;
   final IconData icon;
   final MemoryImage art;
+  final MenuOptions options;
 
   LibButton(
       {super.key,
       required this.title,
       required this.sub,
       required this.icon,
-      required this.art});
+      required this.art, required this.options});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      onLongPress: () {
+        showModalBottomSheet(context: context, isScrollControlled: true, builder: (BuildContext c) {
+            return options;
+          });
+      },
       contentPadding: const EdgeInsets.all(0),
       style: ListTileStyle.list,
       leading: ClipRRect(
@@ -40,10 +47,14 @@ class LibButton extends StatelessWidget {
         sub,
         style: TextStyle(color: Palette.text, fontSize: 10),
       ),
-      trailing: Icon(
+      trailing: ElevatedButton(onPressed: () {
+          showModalBottomSheet(context: context, isScrollControlled: true, builder: (BuildContext c) {
+            return options;
+          });
+      }, child: Icon(
         Icons.more_vert,
-        color: Palette.text,
-      ),
+        color: Palette.text, 
+      )),
     );
   }
 }

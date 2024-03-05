@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:zune/assets/palette.dart';
+import 'package:zune/view/components/options/menu_options.dart';
 
 // ignore: must_be_immutable
 class MusicBox extends StatelessWidget {
@@ -13,6 +14,11 @@ class MusicBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () {},
+        onLongPress: () {
+          showModalBottomSheet(context: context, builder: (BuildContext c) {
+            return const MenuOptions();
+          });
+        },
         child: Padding(
             padding: const EdgeInsets.only(left: 8),
             child: Column(

@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:on_audio_query/on_audio_query.dart';
 import 'package:zune/service/utils/album.dart';
 // import 'package:flutter/material.dart';
@@ -5,7 +7,7 @@ import 'package:zune/service/utils/album.dart';
 class Artist {
   final int id;
   late String name;
-  // final MemoryImage photo;
+  late Uint8List photo;
   late List<Album> albuns;
   // late String description;
 

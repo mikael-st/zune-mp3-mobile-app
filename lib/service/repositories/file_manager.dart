@@ -24,7 +24,7 @@ class FileManager {
     }
   }
 
-  static Future<Uint8List> getArtwork(int id) async {
+  static Future<Uint8List> getAlbumArtwork(int id) async {
     try {
       if (await PermissionController.checkPermission()) {
         return await _onAudioQuery.queryArtwork(

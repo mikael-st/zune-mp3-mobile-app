@@ -1,8 +1,8 @@
 import 'package:zune/assets/palette.dart';
 import 'package:zune/view/components/add_playlist.dart';
-import 'package:zune/view/components/lib_button.dart';
+// import 'package:zune/view/components/lib_button.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:zune/view/components/menu.dart';
 
 class LibPage extends StatelessWidget {
