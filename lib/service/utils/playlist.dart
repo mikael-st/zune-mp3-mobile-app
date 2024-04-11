@@ -1,4 +1,4 @@
-import 'package:zune/service/utils/music.dart';
+import 'package:zune/service/utils/models/music.dart';
 
 class Playlist {
   final int id;

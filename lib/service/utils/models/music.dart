@@ -1,42 +1,38 @@
-import 'package:zune/service/utils/album.dart';
+import 'package:audio_service/audio_service.dart';
+import 'package:zune/service/utils/models/album.dart';
 // import 'package:zune/service/utils/artist.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
-class Music {
-  final int id;
+class Music extends MediaItem{
   final String uri;
-  //
-  late String title;
-  late Album album; //album-id
-  late String artist; //artist-id
   // late List<String> genres = [];
   // late int year;
   late int track;
-  late double duration;
   late int added;
   //
   late int artistId;
   late int albumId;
 
-  Music(
-      {required this.id,
+  Music({
+      required super.id,
+      required super.title,
+      required super.artist,
+      required super.duration,
       required this.uri,
-      required this.title,
-      required this.artist,
       required this.track,
-      required this.duration,
       required this.added,
       required this.artistId,
-      required this.albumId});
+      required this.albumId
+    });
 
   factory Music.create(SongModel obj) {
     return Music(
-        id: obj.id,
+        id: '${obj.id}',
         uri: obj.data,
         title: obj.title,
         artist: obj.artist ?? '',
         track: obj.track ?? 0,
-        duration: obj.duration! / 1000,
+        duration: Duration(milliseconds: obj.duration!),
         added: obj.dateAdded ?? DateTime.now().millisecondsSinceEpoch,
         albumId: obj.albumId ?? 0,
         artistId: obj.artistId ?? 0);

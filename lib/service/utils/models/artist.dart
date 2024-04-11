@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:on_audio_query/on_audio_query.dart';
-import 'package:zune/service/utils/album.dart';
+import 'package:zune/service/utils/models/album.dart';
 // import 'package:flutter/material.dart';
 
 class Artist {

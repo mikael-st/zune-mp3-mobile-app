@@ -36,7 +36,7 @@ class _MusicsPageState extends State<MusicsPage> {
                   padding: const EdgeInsets.only(bottom: 10),
                   child: LibButton(
                       title: song.title,
-                      sub: song.artist,
+                      sub: song.artist!,
                       art: MemoryImage(song.album.art),
                       icon: Icons.music_note,
                       options: const MenuOptions(),));

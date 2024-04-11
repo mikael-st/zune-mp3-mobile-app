@@ -1,8 +1,8 @@
 import 'package:zune/service/repositories/file_manager.dart';
 import 'package:zune/service/repositories/state_manager.dart';
-import 'package:zune/service/utils/album.dart';
-import 'package:zune/service/utils/artist.dart';
-import 'package:zune/service/utils/music.dart';
+import 'package:zune/service/utils/models/album.dart';
+import 'package:zune/service/utils/models/artist.dart';
+import 'package:zune/service/utils/models/music.dart';
 import 'package:zune/service/utils/states.dart';
 import 'package:on_audio_query/on_audio_query.dart';
 
@@ -19,12 +19,12 @@ class Utils {
     List<SongModel> list = await FileManager.getMusicFiles(path);
 
     songs = list.map((obj) => Music.create(obj)).toList();
-    albuns = list.map((obj) => Album.create(obj)).toList();
-    artists = list.map((obj) => Artist.create(obj)).toList();
+    // albuns = list.map((obj) => Album.create(obj)).toList();
+    // artists = list.map((obj) => Artist.create(obj)).toList();
 
-    for (Album album in albuns) {
-      album.art = await FileManager.getAlbumArtwork(album.id);
-    }
+    // for (Album album in albuns) {
+    //   album.art = await FileManager.getAlbumArtwork(album.id);
+    // }
 
     // for (Artist artist in artists) {
     //   artist.photo = await FileManager.getArtistArtwork(artist.id);
@@ -32,17 +32,17 @@ class Utils {
     //       albuns.where((album) => album.artistId == artist.id).toList();
     // }
 
-    for (Album album in albuns) {
-      album.songs = songs.where((song) => song.albumId == album.id).toList();
-    }
+    // for (Album album in albuns) {
+    //   album.songs = songs.where((song) => song.albumId == album.id).toList();
+    // }
 
-    songs.forEach((song) {
-      albuns.forEach((obj) {
-        if (song.albumId == obj.id) {
-          song.album = obj;
-        }
-      });
-    });
+    // songs.forEach((song) {
+    //   albuns.forEach((obj) {
+    //     if (song.albumId == obj.id) {
+    //       song.album = obj;
+    //     }
+    //   });
+    // });
 
     StateManager.state.value = States.success;
   }
