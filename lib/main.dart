@@ -1,3 +1,4 @@
+import 'package:zune/assets/palette.dart';
 import 'package:zune/service/permissions.dart';
 // import 'package:zune/service/repositories/file_manager.dart';
 import 'package:zune/service/repositories/state_manager.dart';
@@ -12,7 +13,6 @@ import 'package:zune/service/utils.dart';
 // import 'package:zune/view/pages/artists_page.dart';
 // import 'package:zune/view/components/order_by.dart';
 
-import '../assets/palette.dart';
 // import 'package:zune/view/pages/albuns_page.dart';
 import 'package:zune/view/pages/artists_page.dart';
 // import 'package:zune/view/pages/home.dart';

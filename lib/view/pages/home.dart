@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:zune/service/utils.dart';
 import 'package:zune/view/components/album_box.dart';
 import 'package:zune/view/components/artist_box.dart';
@@ -86,7 +88,7 @@ class MusicSec extends StatelessWidget {
                 child: Row(
                   children: Utils.songs
                       .map((song) => MusicBox(
-                          title: song.title, art: MemoryImage(song.album.art)))
+                          title: song.title, art: MemoryImage(Uint8List(0))))
                       .toList(),
                 ))
           ],

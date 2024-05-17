@@ -13,7 +13,7 @@ class NavBar extends StatelessWidget {
         decoration: BoxDecoration(
             border: Border(top: BorderSide(color: Palette.various, width: 2))),
         child: BottomNavigationBar(
-          onTap: (index) => {print(index) /* Go.to(index, context) */},
+          onTap: (index) => {Go.to(index, context)},
           items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_filled),
